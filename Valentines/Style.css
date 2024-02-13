@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Kalam:wght@300;400;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+body {
+    background-image: url('hearts.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFC7EA;
+}
+
+input#open {
+    display: none;
+}
+
+.Card {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+}
+
+.front_card {
+    position: relative;
+    background-color: #FF8080;
+    width: 400px;
+    height: 400px;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.15), 30px 0 50px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.front_card::before{
+    content:"";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background-color: #BF3131;
+    top: 10px;
+    left: 10px;
+}
+.inside_card{
+    position: absolute;
+    background-color:#FF8080;
+    width: 400px;
+    height: 400px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .22), 100px 20px 100px rgba(0, 0, 0, .1);
+
+}
+
+.open{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 7;
+    cursor: pointer;
+}
+
+#open:checked ~ .front_card{
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0, 0, 0, .1);
+}
+#open:checked ~ .front_card::before{
+    z-index: 5;
+    background-color: #FF8080;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0, 0, 0, .1);
+
+}
+.message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    font-size: 40px;
+    font-family: "Kalam", cursive;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+    height: 250px; /* Adjust height as needed */
+    background-color: #F78CA2;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+.message:before, .message:after{
+    content: "";
+    position: absolute;
+    background-color: #D80032 ;
+    width: 40px;
+    height: 40px;
+
+
+}
+.message:before{
+    transform: rotate(-45deg);
+    top: -20px;
+    left: 130px;
+
+}
+.message:after{
+    border-radius: 50%;
+    top: -35px;
+    left: 115px;
+    box-shadow: 30px 0 #D80032;
+}
+
+.text{
+    position: absolute;
+    color: #333;
+    font-size: 25px;
+    top: 30px;
+    left: 50px;
+    width: 300px;
+    text-align: center;
+    font-family: "Roboto Flex", sans-serif;
+    font-weight: 600;
+}
+
+
+.text:after{
+    content: "";
+    top: 60px;
+
+}
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    top: 240px;
+    left: 150px;
+    transform: rotate(-45deg);
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background-color: #D80032;
+    border-radius: 50px 50px 0 0;
+}
+
+.heart:before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+/*gusto ko na sana magkalabel tayo, pero hindi ka pa ready eh so wait na lang me here sa gedli hehehehehe */
